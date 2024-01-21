@@ -40,6 +40,7 @@ const HomePage = () => {
         </label>
         <button type="submit">Post</button>
       </form>
+      
       {/* Display Posts */}
       {posts.length > 0 ? (
         posts.map((post, index) => (
