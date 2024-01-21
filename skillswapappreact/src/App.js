@@ -4,6 +4,7 @@ import './App.css';
 import HomePage from './HomePage';
 
 function App() {
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -24,8 +25,10 @@ function App() {
     <div className="App">
       {loggedIn && (
         <div>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
           <h2>Welcome, {username}!</h2>
-          <button onClick={handleLogout}>Logout</button>
           <HomePage />
         </div>
       )}
