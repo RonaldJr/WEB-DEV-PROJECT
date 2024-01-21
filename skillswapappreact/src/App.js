@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from 'react';
 import './App.css';
-import HomePage from './HomePage';
+import HomePage from './HomePage'; // Import the HomePage component
 
 function App() {
   const [username, setUsername] = useState('');
@@ -23,16 +23,14 @@ function App() {
   return (
     <div className="App">
       {loggedIn && (
-        <button className="logout-button" onClick={handleLogout}>
-          Logout
-        </button>
-      )}
-
-      {loggedIn ? (
         <div>
           <h2>Welcome, {username}!</h2>
+          <button onClick={handleLogout}>Logout</button>
+          <HomePage />
         </div>
-      ) : (
+      )}
+
+      {!loggedIn && (
         <div>
           <h2>Login</h2>
           <form>
@@ -60,8 +58,6 @@ function App() {
           </form>
         </div>
       )}
-
-      {loggedIn && <HomePage />}
     </div>
   );
 }
