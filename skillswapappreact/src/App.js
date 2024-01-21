@@ -1,21 +1,16 @@
 // App.js
-
 import React, { useState } from 'react';
-import './App.css';
+import LoginForm from './LoginForm';
 import HomePage from './HomePage';
-import loginImage from "./login.jpg"
+import './App.css';
 
-function App() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const handleLogin = () => {
-    if (username.trim() !== '' && password.trim() !== '') {
-      setLoggedIn(true);
-    } else {
-      alert('Please enter both username and password.');
-    }
+  const handleLogin = (username, password) => {
+    // Implement your login logic here
+    // For now, just set loggedIn to true
+    setLoggedIn(true);
   };
 
   const handleLogout = () => {
@@ -24,47 +19,20 @@ function App() {
 
   return (
     <div className="App">
-      {loggedIn && (
-        <div>
-          <button className="logout-button" onClick={handleLogout}>
-            Logout
-          </button>
-          <h2>Welcome, {username}!</h2>
-          <HomePage />
-        </div>
-      )}
-
-      {!loggedIn && (
-                          <div className='image-section'>
-          <img src = {loginImage} alt = "Login" />
-        <div className="login-form">
-          <h2>Login</h2>
-          <form onSubmit={handleLogin}>
-            <label>
-              Username:
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </label>
-            <br />
-            <label>
-              Password:
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
-            <br />
-            <button type="submit">Login</button>
-          </form>
-        </div>
-        </div>
-      )}
+      <header className="header">
+        <h1>Welcome to SwapSkill</h1>
+      </header>
+      <div className="content">
+        {loggedIn ? (
+          <HomePage handleLogout={handleLogout} loggedIn={loggedIn} />
+        ) : (
+          <div className="login-form-container">
+            <LoginForm handleLogin={handleLogin} />
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,81 +1,79 @@
 // HomePage.js
 import React, { useState } from 'react';
-import './HomePage.css'; // Import your stylesheet for styling
+import './HomePage.css';
 
-const HomePage = () => {
-  const [posts, setPosts] = useState([]);
-  const [newPost, setNewPost] = useState('');
+const HomePage = ({ handleLogout, loggedIn }) => {
+  const [questions, setQuestions] = useState([]);
+  const [newQuestion, setNewQuestion] = useState('');
+  const [answers, setAnswers] = useState({});
 
-  const handlePostSubmit = (e) => {
+  const handleQuestionSubmit = (e) => {
     e.preventDefault();
-    if (newPost.trim() !== '') {
-      setPosts([...posts, { text: newPost, comments: [] }]);
-      setNewPost('');
+    if (newQuestion.trim() !== '') {
+      setQuestions([...questions, newQuestion]);
+      setNewQuestion('');
     }
   };
 
-  const handleCommentSubmit = (postId, commentText) => {
-    const updatedPosts = posts.map((post, index) => {
-      if (index === postId) {
-        return { ...post, comments: [...post.comments, commentText] };
-      }
-      return post;
+  const handleAnswerSubmit = (questionIndex, answerText) => {
+    setAnswers({
+      ...answers,
+      [questionIndex]: [...(answers[questionIndex] || []), answerText],
     });
-
-    setPosts(updatedPosts);
   };
 
   return (
     <div className="home-page">
-      <h1>Welcome to the Awesome Blog!</h1>
+      <h1>What are your question?</h1>
+      
+      {loggedIn && <button onClick={handleLogout}>Logout</button>}
 
-      {/* Post Form */}
-      <form onSubmit={handlePostSubmit}>
+      {/* Ask a Question Form */}
+      <form onSubmit={handleQuestionSubmit}>
         <label>
-          Share your thoughts:
+          Ask a Question:
           <textarea
-            value={newPost}
-            onChange={(e) => setNewPost(e.target.value)}
+            value={newQuestion}
+            onChange={(e) => setNewQuestion(e.target.value)}
           />
         </label>
-        <button type="submit">Post</button>
+        <button type="submit">Ask</button>
       </form>
-      
-      {/* Display Posts */}
-      {posts.length > 0 ? (
-        posts.map((post, index) => (
-          <div key={index} className="post">
-            <p>{post.text}</p>
 
-            {/* Comment Form */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const commentText = e.target.elements.comment.value;
-                handleCommentSubmit(index, commentText);
-              }}
-            >
-              <label>
-                Add Comment:
-                <input type="text" name="comment" />
-              </label>
-              <button type="submit">Comment</button>
-            </form>
+      {/* Display Questions */}
+      {questions.map((question, index) => (
+        <div key={index} className="question">
+          <p>{question}</p>
 
-            {/* Display Comments */}
-            {post.comments.length > 0 && (
-              <ul>
-                {post.comments.map((comment, commentIndex) => (
-                  <li key={commentIndex}>{comment}</li>
-                ))}
-              </ul>
-            )}
-            {post.comments.length === 0 && <p>No comments yet.</p>}
-          </div>
-        ))
-      ) : (
-        <p>No posts available. Be the first to share!</p>
-      )}
+          {/* Answer Form */}
+          <form
+            className="answerForm"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const answerText = e.target.elements.answer.value;
+              handleAnswerSubmit(index, answerText);
+            }}
+          >
+            <label>
+              Your Answer:
+              <input type="text" name="answer" />
+            </label>
+            <button type="submit">Answer</button>
+          </form>
+
+          {/* Display Answers */}
+          {answers[index] && answers[index].length > 0 && (
+            <ul>
+              {answers[index].map((answer, answerIndex) => (
+                <li key={answerIndex} className="answer">
+                  {answer}
+                </li>
+              ))}
+            </ul>
+          )}
+          {(!answers[index] || answers[index].length === 0) && <p>No answers yet.</p>}
+        </div>
+      ))}
     </div>
   );
 };
