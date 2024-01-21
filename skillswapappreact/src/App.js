@@ -31,9 +31,9 @@ function App() {
       )}
 
       {!loggedIn && (
-        <div>
+        <div className="login-form">
           <h2>Login</h2>
-          <form>
+          <form onSubmit={handleLogin}>
             <label>
               Username:
               <input
@@ -52,9 +52,7 @@ function App() {
               />
             </label>
             <br />
-            <button type="button" onClick={handleLogin}>
-              Login
-            </button>
+            <button type="submit">Login</button>
           </form>
         </div>
       )}

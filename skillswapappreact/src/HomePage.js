@@ -5,6 +5,7 @@ import './HomePage.css';
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState('');
+  const [newComment, setNewComment] = useState(''); // Define newComment state
 
   const handleAddPost = () => {
     if (newPost.trim() !== '') {
@@ -16,14 +17,15 @@ const HomePage = () => {
     }
   };
 
-  const handleAddComment = (postId, newComment) => {
+  const handleAddComment = (postId, comment) => { // Use comment instead of newComment
     setPosts((prevPosts) =>
       prevPosts.map((post) =>
         post.id === postId
-          ? { ...post, comments: [...post.comments, newComment] }
+          ? { ...post, comments: [...post.comments, comment] }
           : post
       )
     );
+    setNewComment(''); // Reset the newComment state
   };
 
   return (
@@ -50,8 +52,12 @@ const HomePage = () => {
               <input
                 type="text"
                 placeholder="Write a comment..."
-                onChange={(e) => handleAddComment(post.id, e.target.value)}
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)} // Update newComment state
               />
+              <button onClick={() => handleAddComment(post.id, newComment)}>
+                Comment
+              </button>
             </div>
           </div>
         ))}
