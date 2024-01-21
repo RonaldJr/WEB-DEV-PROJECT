@@ -22,10 +22,15 @@ function App() {
 
   return (
     <div className="App">
+      {loggedIn && (
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
+      )}
+
       {loggedIn ? (
         <div>
           <h2>Welcome, {username}!</h2>
-          <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <div>
