@@ -1,84 +1,62 @@
 import React, { useState } from 'react';
+import './App.css';
 
-function RegistrationForm() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+function App() {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Perform registration logic (e.g., save user data to a database)
-    // ...
-
-    if (password !== confirmPassword) {
-      setErrorMessage('Passwords do not match');
+  const handleLogin = () => {
+    // You can add your authentication logic here.
+    // For simplicity, let's just check if the username and password are not empty.
+    if (username.trim() !== '' && password.trim() !== '') {
+      setLoggedIn(true);
     } else {
-      // Handle successful registration (e.g., redirect to a confirmation page)
-      alert('Registration successful!');
+      alert('Please enter both username and password.');
     }
   };
 
+  const handleLogout = () => {
+    setLoggedIn(false);
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Create an Account</h2>
-      {errorMessage && <p className="error">{errorMessage}</p>}
-      <div>
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          id="lastName"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit">Register</button>
-    </form>
+    <div className="App">
+      {loggedIn ? (
+        <div>
+          <h2>Welcome, {username}!</h2>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <h2>Login</h2>
+          <form>
+            <label>
+              Username:
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </label>
+            <br />
+            <label>
+              Password:
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label>
+            <br />
+            <button type="button" onClick={handleLogin}>
+              Login
+            </button>
+          </form>
+        </div>
+      )}
+    </div>
   );
 }
 
-export default RegistrationForm;
+export default App;
