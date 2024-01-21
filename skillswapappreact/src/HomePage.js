@@ -5,6 +5,7 @@ import './HomePage.css';
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState('');
+  const [newCommentState, setNewCommentState] = useState({}); // Separate state for comments
 
   const handleAddPost = () => {
     if (newPost.trim() !== '') {
@@ -16,14 +17,15 @@ const HomePage = () => {
     }
   };
 
-  const handleAddComment = (postId, newComment) => {
+  const handleAddComment = (postId, comment) => {
     setPosts((prevPosts) =>
       prevPosts.map((post) =>
         post.id === postId
-          ? { ...post, comments: [...post.comments, newComment] }
+          ? { ...post, comments: [...post.comments, comment] }
           : post
       )
     );
+    setNewCommentState((prev) => ({ ...prev, [postId]: '' })); // Reset the newComment state for the specific post
   };
 
   return (
@@ -43,15 +45,26 @@ const HomePage = () => {
             <p className="post-content">{post.content}</p>
             <ul className="comment-list">
               {post.comments.map((comment, index) => (
-                <li key={index} className="comment">{comment}</li>
+                <li key={index} className="comment">
+                  {comment}
+                </li>
               ))}
             </ul>
             <div className="comment-form">
               <input
                 type="text"
                 placeholder="Write a comment..."
-                onChange={(e) => handleAddComment(post.id, e.target.value)}
+                value={newCommentState[post.id] || ''}
+                onChange={(e) =>
+                  setNewCommentState((prev) => ({
+                    ...prev,
+                    [post.id]: e.target.value,
+                  }))
+                }
               />
+              <button onClick={() => handleAddComment(post.id, newCommentState[post.id])}>
+                Comment
+              </button>
             </div>
           </div>
         ))}
