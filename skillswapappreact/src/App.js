@@ -1,10 +1,11 @@
+// App.js
 
 import React, { useState } from 'react';
 import './App.css';
 import HomePage from './HomePage';
+import loginImage from "./login.jpg"
 
 function App() {
-  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,6 +35,8 @@ function App() {
       )}
 
       {!loggedIn && (
+                          <div className='image-section'>
+          <img src = {loginImage} alt = "Login" />
         <div className="login-form">
           <h2>Login</h2>
           <form onSubmit={handleLogin}>
@@ -57,6 +60,7 @@ function App() {
             <br />
             <button type="submit">Login</button>
           </form>
+        </div>
         </div>
       )}
     </div>
