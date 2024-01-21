@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from 'react';
 import './App.css';
-import HomePage from './HomePage'; // Import the HomePage component
+import HomePage from './HomePage';
 
 function App() {
   const [username, setUsername] = useState('');

@@ -1,77 +1,76 @@
 // HomePage.js
 import React, { useState } from 'react';
-import './HomePage.css';
 
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState('');
-  const [newCommentState, setNewCommentState] = useState({}); // Separate state for comments
 
-  const handleAddPost = () => {
+  const handlePostSubmit = (e) => {
+    e.preventDefault();
     if (newPost.trim() !== '') {
-      setPosts((prevPosts) => [
-        ...prevPosts,
-        { id: Date.now(), content: newPost, comments: [] },
-      ]);
+      setPosts([...posts, { text: newPost, comments: [] }]);
       setNewPost('');
     }
   };
 
-  const handleAddComment = (postId, comment) => {
-    setPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postId
-          ? { ...post, comments: [...post.comments, comment] }
-          : post
-      )
-    );
-    setNewCommentState((prev) => ({ ...prev, [postId]: '' })); // Reset the newComment state for the specific post
+  const handleCommentSubmit = (postId, commentText) => {
+    const updatedPosts = posts.map((post, index) => {
+      if (index === postId) {
+        return { ...post, comments: [...post.comments, commentText] };
+      }
+      return post;
+    });
+
+    setPosts(updatedPosts);
   };
 
   return (
-    <div className="facebook-container">
-      <div className="post-form">
-        <textarea
-          placeholder="What's on your mind?"
-          value={newPost}
-          onChange={(e) => setNewPost(e.target.value)}
-        />
-        <button onClick={handleAddPost}>Post</button>
-      </div>
+    <div>
+      <h3>Home Page</h3>
 
-      <div className="post-list">
-        {posts.map((post) => (
-          <div key={post.id} className="post">
-            <p className="post-content">{post.content}</p>
-            <ul className="comment-list">
-              {post.comments.map((comment, index) => (
-                <li key={index} className="comment">
-                  {comment}
-                </li>
-              ))}
-            </ul>
-            <div className="comment-form">
-              <input
-                type="text"
-                placeholder="Write a comment..."
-                value={newCommentState[post.id] || ''}
-                onChange={(e) =>
-                  setNewCommentState((prev) => ({
-                    ...prev,
-                    [post.id]: e.target.value,
-                  }))
-                }
-              />
-              <button onClick={() => handleAddComment(post.id, newCommentState[post.id])}>
-                Comment
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* Post Form */}
+      <form onSubmit={handlePostSubmit}>
+        <label>
+          New Post:
+          <textarea
+            value={newPost}
+            onChange={(e) => setNewPost(e.target.value)}
+          />
+        </label>
+        <br />
+        <button type="submit">Post</button>
+      </form>
+
+      {/* Display Posts */}
+      {posts.map((post, index) => (
+        <div key={index} className="post">
+          <p>{post.text}</p>
+
+          {/* Comment Form */}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              const commentText = e.target.elements.comment.value;
+              handleCommentSubmit(index, commentText);
+            }}
+          >
+            <label>
+              Add Comment:
+              <input type="text" name="comment" />
+            </label>
+            <button type="submit">Comment</button>
+          </form>
+
+          {/* Display Comments */}
+          <ul>
+            {post.comments.map((comment, commentIndex) => (
+              <li key={commentIndex}>{comment}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };
-
 
 export default HomePage;
