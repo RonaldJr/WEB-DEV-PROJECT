@@ -47,7 +47,7 @@
 }
 
 .comment {
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     padding: 8px;
     margin-bottom: 5px;
 }
@@ -55,5 +55,5 @@
 .comment-form input {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
+    margin-top: 8px;
 }
