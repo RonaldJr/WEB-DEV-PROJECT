@@ -55,8 +55,6 @@ button:hover {
   background-color: #45a049;
 }
 
-
-
 .logout-button {
   position: absolute;
   top: 10px;
@@ -66,4 +64,18 @@ button:hover {
   border: none;
   padding: 8px 12px;
   cursor: pointer;
+}
+.loggedInContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcomeContainer {
+  flex: 1;
+}
+
+.logoutContainer {
+  margin-right: 10px;
 }
