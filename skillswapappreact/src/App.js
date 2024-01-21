@@ -1,5 +1,7 @@
+// App.js
 import React, { useState } from 'react';
 import './App.css';
+import HomePage from './HomePage';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -7,8 +9,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    // You can add your authentication logic here.
-    // For simplicity, let's just check if the username and password are not empty.
     if (username.trim() !== '' && password.trim() !== '') {
       setLoggedIn(true);
     } else {
@@ -55,6 +55,8 @@ function App() {
           </form>
         </div>
       )}
+
+      {loggedIn && <HomePage />}
     </div>
   );
 }
