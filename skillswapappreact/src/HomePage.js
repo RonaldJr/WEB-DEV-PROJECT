@@ -5,7 +5,7 @@ import './HomePage.css';
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState('');
-  const [newComment, setNewComment] = useState(''); // Define newComment state
+  const [newCommentState, setNewCommentState] = useState({}); // Separate state for comments
 
   const handleAddPost = () => {
     if (newPost.trim() !== '') {
@@ -17,7 +17,7 @@ const HomePage = () => {
     }
   };
 
-  const handleAddComment = (postId, comment) => { // Use comment instead of newComment
+  const handleAddComment = (postId, comment) => {
     setPosts((prevPosts) =>
       prevPosts.map((post) =>
         post.id === postId
@@ -25,7 +25,7 @@ const HomePage = () => {
           : post
       )
     );
-    setNewComment(''); // Reset the newComment state
+    setNewCommentState((prev) => ({ ...prev, [postId]: '' })); // Reset the newComment state for the specific post
   };
 
   return (
@@ -45,17 +45,24 @@ const HomePage = () => {
             <p className="post-content">{post.content}</p>
             <ul className="comment-list">
               {post.comments.map((comment, index) => (
-                <li key={index} className="comment">{comment}</li>
+                <li key={index} className="comment">
+                  {comment}
+                </li>
               ))}
             </ul>
             <div className="comment-form">
               <input
                 type="text"
                 placeholder="Write a comment..."
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)} // Update newComment state
+                value={newCommentState[post.id] || ''}
+                onChange={(e) =>
+                  setNewCommentState((prev) => ({
+                    ...prev,
+                    [post.id]: e.target.value,
+                  }))
+                }
               />
-              <button onClick={() => handleAddComment(post.id, newComment)}>
+              <button onClick={() => handleAddComment(post.id, newCommentState[post.id])}>
                 Comment
               </button>
             </div>
@@ -65,5 +72,6 @@ const HomePage = () => {
     </div>
   );
 };
+
 
 export default HomePage;
