@@ -3,12 +3,16 @@ import React, { useState } from 'react';
 import './LoginForm.css'; // Add your LoginForm styles
 
 const LoginForm = ({ handleLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials((prevCredentials) => ({ ...prevCredentials, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(username, password);
+    handleLogin(credentials.username, credentials.password);
   };
 
   return (
@@ -17,20 +21,20 @@ const LoginForm = ({ handleLogin }) => {
         Username:
         <input
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          name="username"
+          value={credentials.username}
+          onChange={handleChange}
         />
       </label>
-      <br />
       <label>
         Password:
         <input
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          name="password"
+          value={credentials.password}
+          onChange={handleChange}
         />
       </label>
-      <br />
       <button type="submit">Login</button>
     </form>
   );
