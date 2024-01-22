@@ -1,4 +1,4 @@
-
+/* App.css */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
@@ -14,6 +14,11 @@ body {
   background-color: #333;
   padding: 20px;
   color: white;
+}
+
+.header h1 {
+  text-align: center;
+  /* Center align text */
 }
 
 .login-form-container {
@@ -37,3 +42,5 @@ body {
 .logout-button:hover {
   background-color: #990000;
 }
+
+/* Add more styles as needed */

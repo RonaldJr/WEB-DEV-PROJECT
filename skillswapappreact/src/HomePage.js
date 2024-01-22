@@ -3,77 +3,86 @@ import React, { useState } from 'react';
 import './HomePage.css';
 
 const HomePage = ({ handleLogout, loggedIn }) => {
-  const [questions, setQuestions] = useState([]);
-  const [newQuestion, setNewQuestion] = useState('');
-  const [answers, setAnswers] = useState({});
+  const [posts, setPosts] = useState([]);
+  const [newPost, setNewPost] = useState('');
 
-  const handleQuestionSubmit = (e) => {
+  const handlePostSubmit = (e) => {
     e.preventDefault();
-    if (newQuestion.trim() !== '') {
-      setQuestions([...questions, newQuestion]);
-      setNewQuestion('');
+    if (newPost.trim() !== '') {
+      setPosts([...posts, { text: newPost, comments: [] }]);
+      setNewPost('');
     }
   };
 
-  const handleAnswerSubmit = (questionIndex, answerText) => {
-    setAnswers({
-      ...answers,
-      [questionIndex]: [...(answers[questionIndex] || []), answerText],
+  const handleCommentSubmit = (postIndex, commentText) => {
+    setPosts((prevPosts) => {
+      const updatedPosts = [...prevPosts];
+      updatedPosts[postIndex].comments.push(commentText);
+      return updatedPosts;
     });
   };
 
   return (
     <div className="home-page">
-      <h1>What are your question?</h1>
-      
-      {loggedIn && <button onClick={handleLogout}>Logout</button>}
+      <header className="header">
+        <h1 className="title">Your Feed</h1>
+        {loggedIn && <button onClick={handleLogout} className="logout-btn">Logout</button>}
+      </header>
 
-      {/* Ask a Question Form */}
-      <form onSubmit={handleQuestionSubmit}>
-        <label>
-          Ask a Question:
-          <textarea
-            value={newQuestion}
-            onChange={(e) => setNewQuestion(e.target.value)}
-          />
-        </label>
-        <button type="submit">Ask</button>
-      </form>
+      <div className="post-section">
+        <form onSubmit={handlePostSubmit} className="post-form">
+          <label>
+            Share your experience:
+            <textarea
+              value={newPost}
+              onChange={(e) => setNewPost(e.target.value)}
+            />
+          </label>
+          <button type="submit">Post</button>
+        </form>
+      </div>
 
-      {/* Display Questions */}
-      {questions.map((question, index) => (
-        <div key={index} className="question">
-          <p>{question}</p>
+      <div className="post-list">
+        {posts.map((post, index) => (
+          <div key={index} className="post">
+            <p>{post.text}</p>
 
-          {/* Answer Form */}
-          <form
-            className="answerForm"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const answerText = e.target.elements.answer.value;
-              handleAnswerSubmit(index, answerText);
-            }}
-          >
-            <label>
-              Your Answer:
-              <input type="text" name="answer" />
-            </label>
-            <button type="submit">Answer</button>
-          </form>
+            <div className="comment-section">
+              <label>
+                Add your comment:
+                <input
+                  type="text"
+                  name={`comment-${index}`}
+                  placeholder="Type your comment..."
+                />
+              </label>
+              <button
+                type="button"
+                onClick={() => {
+                  const commentText = document.getElementsByName(`comment-${index}`)[0].value;
+                  handleCommentSubmit(index, commentText);
+                }}
+              >
+                Comment
+              </button>
+            </div>
 
-          {/* Display Answers */}
-          {answers[index] && answers[index].length > 0 && (
-            <ul>
-              {answers[index].map((answer, answerIndex) => (
-                <li key={answerIndex} className="answer">
-                  {answer}
-                </li>
-              ))}
-            </ul>
-          )}
-          {(!answers[index] || answers[index].length === 0) && <p>No answers yet.</p>}
-        </div>
-      ))}
+            <div className="comment-list">
+              {post.comments.length > 0 ? (
+                <ul>
+                  {post.comments.map((comment, commentIndex) => (
+                    <li key={commentIndex} className="comment">
+                      {comment}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No comments yet.</p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
