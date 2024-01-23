@@ -29,7 +29,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="facebook-container">
+    <div className="swapskill-container">
       <div className="post-form">
         <textarea
           placeholder="What's on your mind?"
