@@ -24,9 +24,7 @@ const AskQuestion = () => {
   };
 
   const submitQuestionToServer = async (questionData) => {
-    // Implement your logic to send the question data to the server
-    // This could involve making a network request (e.g., using fetch or axios)
-    // For simplicity, let's assume a successful submission for now
+   
     return { status: 'success' };
   };
 

@@ -63,7 +63,7 @@ const HomePage = () => {
                 }
               />
               <button onClick={() => handleAddComment(post.id, newCommentState[post.id])}>
-                Comment
+                
               </button>
             </div>
           </div>
