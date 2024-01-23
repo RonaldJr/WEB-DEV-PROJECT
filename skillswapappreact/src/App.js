@@ -56,22 +56,22 @@ Join us on this exciting coding adventure, and let's build a future where techno
 <section id="developer">
 <h1 class="title">Meet our Developers!</h1>
 <img
-                      src="\src\assets\419216009_1811771342604666_2784992572378574594_n.jpg"
+                      src="\src\assets\419216009_1811771342604666_2784992572378574594_n.jpeg"
                       alt="ronald photo"
                       class="photo"
                     />
 <img
-                      src="\src\assets\415921162_382447504148964_21095218977257552_n.jpg"
+                      src="\src\assets\415921162_382447504148964_21095218977257552_n.jpeg"
                       alt="gelo photo"
                       class="photo"
                     />
 <img
-                      src="\src\assets\312956248_1181171262758197_3033049997838503216_n.jpg"
+                      src="\src\assets\312956248_1181171262758197_3033049997838503216_n.jpeg"
                       alt="pert photo"
                       class="photo"
                     />
 <img
-                      src="\src\assets\419773287_611072327818708_8381882846701940231_n.jpg"
+                      src="\src\assets\419773287_611072327818708_8381882846701940231_n.jpeg"
                       alt="maki photo"
                       class="photo"
                     />
