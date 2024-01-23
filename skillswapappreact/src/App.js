@@ -28,6 +28,7 @@ const App = () => {
           <li><a href="#signup">Sign Up</a></li>
         </ul>
       </header>
+
       <section id="about">
 <h1 class="title">About Us!</h1>
 <p>
@@ -52,7 +53,10 @@ Join us on this exciting coding adventure, and let's build a future where techno
 
 </section>  
 
-      
+<section id="developer">
+<h1 class="title">Meet our Developers!</h1>
+</section>     
+
       <div className="content">
         {loggedIn ? (
           <HomePage handleLogout={handleLogout} loggedIn={loggedIn} />
