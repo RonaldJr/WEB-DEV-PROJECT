@@ -1,14 +1,34 @@
 // HomePage.js
-import React, { useState } from 'react';
-import './HomePage.css';
+import React, { useState } from "react";
+import "./HomePage.css";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = ({ handleLogout, loggedIn }) => {
-  const [answers, setAnswers] = useState(Array(3).fill(''));
+  const [answers, setAnswers] = useState(Array(3).fill(""));
+  const navigate = useNavigate();
 
   const questions = [
-    { id: 1, title: 'How to use React hooks?', votes: 10, answers: 5, userAnswers: [] },
-    { id: 2, title: 'What is the difference between props and state?', votes: 15, answers: 8, userAnswers: [] },
-    { id: 3, title: 'How to style components in React?', votes: 8, answers: 3, userAnswers: [] },
+    {
+      id: 1,
+      title: "How to use React hooks?",
+      votes: 10,
+      answers: 5,
+      userAnswers: [],
+    },
+    {
+      id: 2,
+      title: "What is the difference between props and state?",
+      votes: 15,
+      answers: 8,
+      userAnswers: [],
+    },
+    {
+      id: 3,
+      title: "How to style components in React?",
+      votes: 8,
+      answers: 3,
+      userAnswers: [],
+    },
     // Add more sample questions as needed
   ];
 
@@ -27,44 +47,63 @@ const HomePage = ({ handleLogout, loggedIn }) => {
     <div className="home-page">
       <header className="header">
         <h1 className="title">SwapSkill</h1>
-        {loggedIn && <button onClick={handleLogout} className="logout-btn">Logout</button>}
+        {loggedIn && (
+          <button onClick={handleLogout} className="logout-btn">
+            Logout
+          </button>
+        )}
       </header>
 
       <div className="welcome-message">
-        {loggedIn && <p>Welcome back! Explore the latest questions and contribute to the community.</p>}
-        {!loggedIn && <p>Join SwapSkill to connect, learn, and share knowledge with others.</p>}
+        {loggedIn && (
+          <p>
+            Welcome back! Explore the latest questions and contribute to the
+            community.
+          </p>
+        )}
+        {!loggedIn && (
+          <p>
+            Join SwapSkill to connect, learn, and share knowledge with others.
+          </p>
+        )}
       </div>
 
       <div className="question-list">
-        {questions.map(({ id, title, votes, answers: numAnswers, userAnswers }, index) => (
-          <div key={id} className="question">
-            <div className="votes">{votes}</div>
-            <div className="question-details">
-              <h3>{title}</h3>
-              <p>{numAnswers} Answers</p>
+        {questions.map(
+          ({ id, title, votes, answers: numAnswers, userAnswers }, index) => (
+            <div key={id} className="question">
+              <div className="votes">{votes}</div>
+              <div className="question-details">
+                <h3>{title}</h3>
+                <p>{numAnswers} Answers</p>
+              </div>
+              <div className="answer-section">
+                <textarea
+                  value={answers[index]}
+                  onChange={(e) => {
+                    const updatedAnswers = [...answers];
+                    updatedAnswers[index] = e.target.value;
+                    setAnswers(updatedAnswers);
+                  }}
+                  placeholder="Your Answer..."
+                />
+                <button
+                  onClick={() => handleAnswerSubmit(index, answers[index])}
+                >
+                  Submit Answer
+                </button>
+              </div>
             </div>
-            <div className="answer-section">
-              <textarea
-                value={answers[index]}
-                onChange={(e) => {
-                  const updatedAnswers = [...answers];
-                  updatedAnswers[index] = e.target.value;
-                  setAnswers(updatedAnswers);
-                }}
-                placeholder="Your Answer..."
-              />
-              <button onClick={() => handleAnswerSubmit(index, answers[index])}>
-                Submit Answer
-              </button>
-            </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
 
       <div className="cta-section">
         <h2>Ready to get started?</h2>
         <p>Ask your own question or help others by providing answers.</p>
-        <button className="cta-btn">Ask a Question</button>
+        <button className="cta-btn" onClick={() => navigate("/ask-question")}>
+          Ask a Question
+        </button>
       </div>
 
       <div className="featured-section">

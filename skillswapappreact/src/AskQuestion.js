@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./AskQuestion.css";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AskQuestion = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,7 +16,7 @@ const AskQuestion = () => {
     // Check if the question was successfully submitted
     if (response.status === "success") {
       // Redirect to the homepage
-      location.push("/");
+      navigate("/");
     } else {
       // Handle error scenario
       console.error("Failed to submit question.");

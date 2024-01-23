@@ -9,7 +9,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="Ask-Question" element={<AskQuestion />} />
+      <Route path="ask-question" element={<AskQuestion />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
