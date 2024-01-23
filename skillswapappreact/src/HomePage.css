@@ -1,6 +1,10 @@
 /* HomePage.css */
 
-
+.swapskill-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
 .post-form textarea {
     width: 100%;
