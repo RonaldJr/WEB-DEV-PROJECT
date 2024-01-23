@@ -32,7 +32,7 @@ const AskQuestion = () => {
 
   return (
     <div className="ask-question">
-      <h2>Ask a Question</h2>
+      <h2></h2>
       <form onSubmit={handleSubmit}>
         <label>
           Title:
