@@ -49,7 +49,7 @@ const AskQuestion = () => {
             onChange={(e) => setContent(e.target.value)}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit"></button>
       </form>
     </div>
   );
