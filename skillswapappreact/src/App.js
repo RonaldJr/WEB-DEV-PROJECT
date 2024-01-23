@@ -58,7 +58,7 @@ Join us on this exciting coding adventure, and let's build a future where techno
 <img
                       src="skillswapappreact\assets\419216009_1811771342604666_2784992572378574594_n.jpg"
                       alt="ronald photo"
-                      class="image"
+                      class="photo"
                     />
 <img
                       src="skillswapappreact\src\assets\415921162_382447504148964_21095218977257552_n.jpg"
