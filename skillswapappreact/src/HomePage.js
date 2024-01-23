@@ -12,7 +12,6 @@ const HomePage = ({ handleLogout, loggedIn }) => {
   ];
 
   const handleAnswerSubmit = (questionIndex, answer) => {
-    // Update the userAnswers array for the corresponding question
     setAnswers((prevAnswers) => {
       const updatedAnswers = [...prevAnswers];
       updatedAnswers[questionIndex] = answer;
@@ -36,12 +35,12 @@ const HomePage = ({ handleLogout, loggedIn }) => {
       </div>
 
       <div className="question-list">
-        {questions.map((question, index) => (
-          <div key={question.id} className="question">
-            <div className="votes">{question.votes}</div>
+        {questions.map(({ id, title, votes, answers: numAnswers, userAnswers }, index) => (
+          <div key={id} className="question">
+            <div className="votes">{votes}</div>
             <div className="question-details">
-              <h3>{question.title}</h3>
-              <p>{question.answers} Answers</p>
+              <h3>{title}</h3>
+              <p>{numAnswers} Answers</p>
             </div>
             <div className="answer-section">
               <textarea
@@ -53,9 +52,7 @@ const HomePage = ({ handleLogout, loggedIn }) => {
                 }}
                 placeholder="Your Answer..."
               />
-              <button
-                onClick={() => handleAnswerSubmit(index, answers[index])}
-              >
+              <button onClick={() => handleAnswerSubmit(index, answers[index])}>
                 Submit Answer
               </button>
             </div>
