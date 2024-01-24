@@ -1,6 +1,6 @@
 Members & Assigned Roles:
 
- • Padilla, Angelo - App.JS UI/UX design
+ • Padilla, Angelo - App.JS UI/UX design 
  
  • Marqueta, Rupert - AboutUs, Description, some of the HomePage Page Design 
  
