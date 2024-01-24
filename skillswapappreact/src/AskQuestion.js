@@ -3,22 +3,11 @@ import "./AskQuestion.css";
 import { useNavigate } from "react-router-dom";
 
 const AskQuestion = () => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState("");
   const [newCommentState, setNewCommentState] = useState({});
   const navigate = useNavigate();
 
-  const submitQuestionToServer = async (question) => {
-    // Implement logic to submit the question (e.g., using an API)
-    // Return a promise that resolves with the response
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ status: "success" });
-      }, 2000);
-    });
   const handleAddPost = () => {
     if (newPost.trim() !== "") {
       setPosts((prevPosts) => [
@@ -29,19 +18,6 @@ const AskQuestion = () => {
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    // Implement logic to submit the question (e.g., using an API)
-    const response = await submitQuestionToServer({ title, content });
-
-    // Check if the question was successfully submitted
-    if (response.status === "success") {
-      // Redirect to the homepage
-      navigate("/");
-    } else {
-      // Handle error scenario
-      console.error("Failed to submit question.");
   const handleAddComment = (postId, comment) => {
     if (comment.trim() !== "") {
       setPosts((prevPosts) =>
@@ -66,30 +42,9 @@ const AskQuestion = () => {
 
   return (
     <div className="ask-question">
-      <h2>Ask a Question</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </label>
-        <label>
-          Content:
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-      <div className="centered">
-        <button onClick={handleLogout} className="logout-button">
-          Logout
-        </button>
-      </div>
+      <button onClick={handleLogout} className="logout-button">
+        Logout
+      </button>
       <div className="post-form">
         <textarea
           placeholder="What's on your mind?"

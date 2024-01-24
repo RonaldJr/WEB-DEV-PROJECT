@@ -6,7 +6,6 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
   font-family: "Arial", sans-serif;
   line-height: 1.6;
   background-color: #f8f9fa;
@@ -44,18 +43,15 @@ body {
 
 .logout-btn {
   background-color: #ff7f50;
-  background-color: #red;
   color: #fff;
   border: none;
   padding: 10px 15px;
   font-size: 14px;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s ease-in-out;
 }
 
 .logout-btn:hover {
-  background-color: #ff6347;
   background-color: red;
 }
 
@@ -80,7 +76,6 @@ body {
   text-align: center;
   display: inline-flex;
   gap: 1em;
-  
 }
 
 .votes span {
@@ -208,14 +203,12 @@ textarea::placeholder {
   }
 }
 
-.sort-options{
 .sort-options {
   display: inline-flex;
   gap: 1em;
   padding: 10px;
 }
 
-.answer-section{
 .answer-section {
   display: inline-flex;
   gap: 1em;
