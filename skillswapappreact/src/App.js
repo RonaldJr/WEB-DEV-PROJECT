@@ -67,7 +67,7 @@ const App = () => {
             <h2>Login</h2>
             <form>
               <label>
-                Useme:
+                Username:
                 <input
                   type="text"
                   value={username}
