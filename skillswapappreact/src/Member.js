@@ -5,6 +5,7 @@ import './Member.css'; // Import the CSS file for Member
 const Member = ({ handleMemberClick }) => {
   return (
     <div className="Member">
+      <h1> SwapSkill Developers</h1>
       <div className="member-container">
         <div className="member-item">
           <img src={require('./members/rupert.jpg')} alt="Rupert" />

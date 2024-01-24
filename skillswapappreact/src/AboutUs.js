@@ -5,7 +5,7 @@ import './AboutUs.css';
 const AboutUs = ({ handleAboutUsClick }) => {
   return (
     <div className="AboutUs">
-      
+      <h1>What is SwapSkill?</h1>
       <div className="content">
         <p>
           Your go-to destination for all things coding and programming! We are passionate about empowering individuals with the knowledge and skills needed to thrive in the dynamic world of technology.
