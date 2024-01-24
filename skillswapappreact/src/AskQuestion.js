@@ -24,6 +24,7 @@ const AskQuestion = () => {
   };
 
   const submitQuestionToServer = async (questionData) => {
+    // Simulating a server response
     return { status: "success" };
   };
 
