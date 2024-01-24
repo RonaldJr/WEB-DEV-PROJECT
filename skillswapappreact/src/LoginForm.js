@@ -1,13 +1,19 @@
 // LoginForm.js
-import React, { useState } from 'react';
-import './LoginForm.css'; // Add your LoginForm styles
+import React, { useState } from "react";
+import "./LoginForm.css"; // Add your LoginForm styles
 
 const LoginForm = ({ handleLogin }) => {
-  const [credentials, setCredentials] = useState({ username: '', password: '' });
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCredentials((prevCredentials) => ({ ...prevCredentials, [name]: value }));
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
