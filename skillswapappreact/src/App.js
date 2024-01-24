@@ -11,7 +11,6 @@ const App = () => {
   const [showAboutUs, setShowAboutUs] = useState(false);
   const [showMember, setShowMember] = useState(false);
 
-
   const handleLogin = () => {
     if (username.trim() !== "" && password.trim() !== "") {
       setLoggedIn(true);
