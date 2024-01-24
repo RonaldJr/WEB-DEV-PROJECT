@@ -23,10 +23,13 @@ const AskQuestion = () => {
     }
   };
 
+<<<<<<< HEAD
   const submitQuestionToServer = async (questionData) => {
     // Simulating a server response
     return { status: "success" };
   };
+=======
+>>>>>>> main
 
   return (
     <div className="ask-question">

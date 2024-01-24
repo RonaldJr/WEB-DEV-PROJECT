@@ -1,5 +1,6 @@
 /* Member.css */
 .Member {
+<<<<<<< HEAD
   margin: 10px;
 }
 
@@ -25,3 +26,30 @@
   border-radius: 4px;
   margin-top: 15px;
 }
+=======
+    margin: 10px;
+}
+
+.Member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.Member p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.Member .closeButton {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+>>>>>>> main

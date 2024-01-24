@@ -1,4 +1,5 @@
 // App.js
+<<<<<<< HEAD
 import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import HomePage from "./HomePage";
@@ -6,6 +7,15 @@ import AboutUs from "./AboutUs";
 import Member from "./Member";
 
 import "./App.css";
+=======
+import React, { useState } from 'react';
+import LoginForm from './LoginForm';
+import HomePage from './HomePage';
+import AboutUs from './AboutUs'; 
+import Member from './Member'; 
+
+import './App.css';
+>>>>>>> main
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -43,6 +53,7 @@ const App = () => {
       <header className="header">
         <h1>Welcome to SwapSkill</h1>
         <ul className="nav-links">
+<<<<<<< HEAD
           <li>
             <button onClick={handleAboutUsClick}>About Us!</button>
           </li>
@@ -51,6 +62,12 @@ const App = () => {
           </li>
         </ul>
       </header>
+=======
+          <li><button onClick={handleAboutUsClick}>About Us!</button></li>
+          <li><button onClick={handleMemberClick}>Meet our Developers!</button></li>
+        </ul>
+      </header>   
+>>>>>>> main
 
       <div className="content">
         {showAboutUs ? (

@@ -1,5 +1,9 @@
 // QuestionContext.js
+<<<<<<< HEAD
 import React, { createContext, useContext, useState } from "react";
+=======
+import React, { createContext, useContext, useState } from 'react';
+>>>>>>> main
 
 const QuestionContext = createContext();
 
