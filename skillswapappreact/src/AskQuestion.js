@@ -7,6 +7,16 @@ const AskQuestion = () => {
   const [content, setContent] = useState("");
   const navigate = useNavigate();
 
+  const submitQuestionToServer = async (question) => {
+    // Implement logic to submit the question (e.g., using an API)
+    // Return a promise that resolves with the response
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ status: "success" });
+      }, 2000);
+    });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -22,7 +32,6 @@ const AskQuestion = () => {
       console.error("Failed to submit question.");
     }
   };
-
 
   return (
     <div className="ask-question">
