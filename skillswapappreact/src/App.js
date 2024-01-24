@@ -44,7 +44,7 @@ const App = () => {
         <h1>Welcome to SwapSkill</h1>
         <ul className="nav-links">
           <li><button onClick={handleAboutUsClick}>About Us!</button></li>
-          <li><button onClick={handleMemberClick}>Meet our Developers!</button></li>
+          <li><button onClick={handleMemberClick}>Members</button></li>
         </ul>
       </header>   
 
