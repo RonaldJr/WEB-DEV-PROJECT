@@ -1,21 +1,24 @@
-// App.js
-import React, { useState } from 'react';
-import LoginForm from './LoginForm';
-import HomePage from './HomePage';
-import AboutUs from './AboutUs'; 
-import Member from './Member'; 
+import React, { useState } from "react";
+import LoginForm from "./LoginForm";
+import HomePage from "./HomePage";
+import AboutUs from "./AboutUs";
+import Member from "./Member";
 
-import './App.css';
+import "./App.css";
 
 const App = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [showAboutUs, setShowAboutUs] = useState(false);
   const [showMember, setShowMember] = useState(false);
 
-  const handleLogin = (username, password) => {
-    // Implement your login logic here
-    // For now, just set loggedIn to true
-    setLoggedIn(true);
+  const handleLogin = () => {
+    if (username.trim() !== "" && password.trim() !== "") {
+      setLoggedIn(true);
+    } else {
+      alert("Please enter your username and password.");
+    }
   };
 
   const handleLogout = () => {
@@ -43,10 +46,14 @@ const App = () => {
       <header className="header">
         <h1>Welcome to SwapSkill</h1>
         <ul className="nav-links">
-          <li><button onClick={handleAboutUsClick}>About Us!</button></li>
-          <li><button onClick={handleMemberClick}>Members</button></li>
+          <li>
+            <button onClick={handleAboutUsClick}>About Us!</button>
+          </li>
+          <li>
+            <button onClick={handleMemberClick}>Members</button>
+          </li>
         </ul>
-      </header>   
+      </header>
 
       <div className="content">
         {showAboutUs ? (
@@ -57,11 +64,35 @@ const App = () => {
           <HomePage handleLogout={handleLogout} loggedIn={loggedIn} />
         ) : (
           <div className="login-form-container">
-            <LoginForm handleLogin={handleLogin} />
+            <h2>Login</h2>
+            <form>
+              <label>
+                Username:
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </label>
+              <br />
+              <label>
+                Password:
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>
+              <br />
+              <button type="button" onClick={handleLogin}>
+                Login
+              </button>
+            </form>
           </div>
         )}
       </div>
     </div>
   );
 };
+
 export default App;
