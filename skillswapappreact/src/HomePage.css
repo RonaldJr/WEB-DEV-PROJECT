@@ -36,6 +36,12 @@
   background-color: #ff6347;
 }
 
+.sort-options{
+  display:inline-flex;
+  align-items: center;
+  gap: 1em;
+  padding: 10px;
+}
 .question-list {
   
   display: grid;
@@ -95,7 +101,6 @@
 }
 
 .cta-btn {
-  
   padding: 12px;
   cursor: pointer;
   background-color: #0077cc;
@@ -107,7 +112,6 @@
 }
 
 .cta-btn:hover {
-  
   background-color: #005689;
 }
 
@@ -122,7 +126,7 @@
 }
 
 .featured-topics-list li:hover {
-  
+  gap: 1em;
   background-color: #e2e6ea;
 }
 
@@ -140,3 +144,4 @@
 .trending-list li:hover {
   background-color: #f4f4f4;
 }
+
