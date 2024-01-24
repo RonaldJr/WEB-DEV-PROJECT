@@ -1,28 +1,17 @@
 /* AskQuestion.css */
 
 .ask-question {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.ask-question-title {
-  color: #333;
 .centered {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.form-group {
-  margin-bottom: 20px;
 .logout-button {
   padding: 10px;
   border-radius: 4px;
@@ -31,64 +20,43 @@
   font-weight: bold;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #555;
 .post-form {
   display: flex;
   align-items: center;
   margin-top: 20px;
 }
 
-input,
 textarea {
-  gap: 1em;
-  width: 100%;
   resize: none;
   padding: 10px;
   margin-right: 10px;
   width: 300px;
 }
 
-button {
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #0400ff;
-  color: #fff;
-  font-weight: bold;
-}
-
 .post-list {
   margin-top: 20px;
 }
 
-.post {
-  border: 1px solid #000;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-button:hover {
-  gap: 1em;
-  background-color: #0056b3;
-}.post-content {
+.post-content {
   font-weight: bold;
 }
 
 .comment-list {
   list-style: none;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .comment {
   margin-top: 5px;
+  box-sizing: border-box;
 }
 
 .comment-form {
   display: flex;
   align-items: center;
   margin-top: 10px;
+  box-sizing: border-box;
 }
 
 .comment-form input {
@@ -99,7 +67,56 @@ button:hover {
 .comment-form button {
   padding: 5px;
   border-radius: 4px;
-  background-color: #0026ff;
+  background-color: #0077cc;
   color: #fff;
   font-weight: bold;
+}
+
+.ask-question-title {
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input,
+textarea {
+  gap: 1em;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  gap: 2em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  gap: 1em;
+  background-color: #0056b3;
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
