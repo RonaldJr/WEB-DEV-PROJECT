@@ -23,9 +23,6 @@ const AskQuestion = () => {
     }
   };
 
-  const submitQuestionToServer = async (questionData) => {
-    return { status: "success" };
-  };
 
   return (
     <div className="ask-question">

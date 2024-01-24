@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 import HomePage from './HomePage';
-import AboutUs from './AboutUs'; // Import the new component
-import Member from './Member'; // Import the new component
+import AboutUs from './AboutUs'; 
+import Member from './Member'; 
+
 import './App.css';
 
 const App = () => {

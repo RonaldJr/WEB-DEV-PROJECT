@@ -5,7 +5,7 @@
   padding: 20px;
   background-color: #f8f9fa;
   border: 1px solid #d6d9dc;
-  box-shadow: 0 0 10px rlgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(185, 138, 138, 0.1);
   border-radius: 8px;
 }
 
@@ -29,7 +29,9 @@
   font-size: 14px;
   cursor: pointer;
   border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
 }
+
 .logout-btn:hover {
   background-color: #ff6347;
 }
@@ -69,7 +71,9 @@
   color: #777;
 }
 
-.welcome-message {
+.welcome-message,
+.featured-section,
+.user-stats {
   background-color: #f8f9fa;
   border: 1px solid #d6d9dc;
   border-radius: 8px;
@@ -90,21 +94,11 @@
   border: none;
   border-radius: 4px;
   font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .cta-btn:hover {
   background-color: #005689;
-}
-
-.featured-section {
-  margin-top: 20px;
-}
-
-.featured-topics-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 10px;
 }
 
 .featured-topics-list li {
@@ -113,31 +107,11 @@
   border-radius: 8px;
   padding: 8px 12px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .featured-topics-list li:hover {
   background-color: #e2e6ea;
-}
-
-.user-stats {
-  margin-top: 20px;
-}
-
-.stats {
-  display: flex;
-  gap: 20px;
-}
-
-.stat-item {
-  text-align: center;
-}
-.trending-section {
-  margin-top: 20px;
-}
-
-.trending-list {
-  list-style: none;
-  padding: 0;
 }
 
 .trending-list li {
