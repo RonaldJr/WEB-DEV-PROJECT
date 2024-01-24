@@ -74,6 +74,7 @@ button:hover {
   gap: 1em;
   background-color: #0056b3;
 }.post-content {
+.post-content {
   font-weight: bold;
 }
 
