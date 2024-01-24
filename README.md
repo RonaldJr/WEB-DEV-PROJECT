@@ -1,3 +1,4 @@
+
 Members & Assigned Roles:
 
  • Padilla, Angelo - App.JS UI/UX design 
