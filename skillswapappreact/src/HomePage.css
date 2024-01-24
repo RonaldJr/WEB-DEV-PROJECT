@@ -75,6 +75,9 @@ body {
   color: #6b7280;
   padding: 10px;
   text-align: center;
+  display: inline-flex;
+  gap: 1em;
+  
 }
 
 .votes span {
@@ -83,7 +86,7 @@ body {
 }
 
 .question-details {
-  padding: 15px;
+  padding: 8px;
 }
 
 .question h3 {
@@ -201,3 +204,16 @@ textarea::placeholder {
     margin-top: 10px;
   }
 }
+
+.sort-options{
+  display: inline-flex;
+  gap: 1em;
+  padding: 10px;
+}
+
+.answer-section{
+  display: inline-flex;
+  gap: 1em;
+  padding: 10px;
+}
+
