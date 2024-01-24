@@ -9,6 +9,7 @@ const AskQuestion = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState("");
   const [newCommentState, setNewCommentState] = useState({});
+  const navigate = useNavigate();
 
   const submitQuestionToServer = async (question) => {
     // Implement logic to submit the question (e.g., using an API)
@@ -58,6 +59,11 @@ const AskQuestion = () => {
     }
   };
 
+  const handleLogout = () => {
+    // Add your logout logic here
+    navigate("/");
+  };
+
   return (
     <div className="ask-question">
       <h2>Ask a Question</h2>
@@ -79,6 +85,11 @@ const AskQuestion = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
+      <div className="centered">
+        <button onClick={handleLogout} className="logout-button">
+          Logout
+        </button>
+      </div>
       <div className="post-form">
         <textarea
           placeholder="What's on your mind?"
