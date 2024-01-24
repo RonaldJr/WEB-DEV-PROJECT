@@ -4,6 +4,7 @@ import './LoginForm.css'; // Add your LoginForm styles
 
 const LoginForm = ({ handleLogin }) => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -12,11 +13,18 @@ const LoginForm = ({ handleLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(credentials.username, credentials.password);
+
+    if (credentials.username.trim() === '' || credentials.password.trim() === '') {
+      setError('Both username and password are required.');
+    } else {
+      setError('');
+      handleLogin(credentials.username, credentials.password);
+    }
   };
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
+      {error && <p className="error-message">{error}</p>}
       <label>
         Username:
         <input
