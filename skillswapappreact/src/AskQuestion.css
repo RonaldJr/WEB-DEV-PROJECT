@@ -1,4 +1,5 @@
 /* AskQuestion.css */
+
 .ask-question {
   max-width: 600px;
   margin: 0 auto;
@@ -25,6 +26,7 @@ label {
 
 input,
 textarea {
+  gap: 1em;
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -37,10 +39,12 @@ button {
   color: #fff;
   padding: 10px 20px;
   border: none;
+  gap: 2em;
   border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
+  gap: 1em;
   background-color: #0056b3;
 }
