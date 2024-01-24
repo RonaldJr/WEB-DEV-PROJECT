@@ -103,7 +103,6 @@ const HomePage = ({ handleLogout, loggedIn }) => {
         <h1 className="title">SwapSkill</h1>
         {loggedIn && (
           <div className="user-profile">
-  
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>
