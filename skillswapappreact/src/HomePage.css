@@ -7,7 +7,6 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  font-family: "Arial", sans-serif;
   line-height: 1.6;
   background-color: #f8f9fa;
   color: #495057;
@@ -44,7 +43,6 @@ body {
 
 .logout-btn {
   background-color: #ff7f50;
-  background-color: #red;
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -209,15 +207,14 @@ textarea::placeholder {
 }
 
 .sort-options{
-.sort-options {
   display: inline-flex;
   gap: 1em;
   padding: 10px;
 }
 
 .answer-section{
-.answer-section {
   display: inline-flex;
   gap: 1em;
   padding: 10px;
 }
+
