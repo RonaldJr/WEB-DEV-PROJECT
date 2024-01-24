@@ -1,39 +1,109 @@
 /* LoginForm.css */
 .login-form {
-    max-width: 300px;
+    max-width: 400px;
     margin: auto;
-    padding: 20px;
+    padding: 40px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
 }
 
 .login-form label {
+    font-size: 16px;
+    margin-bottom: 8px;
     display: block;
-    margin-bottom: 10px;
-    padding: 10px;
+    color: #333;
 }
 
 .login-form input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #0077cc;
 }
 
 .login-form button {
-    padding: 12px;
+    padding: 16px;
     cursor: pointer;
     background-color: #0077cc;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     width: 100%;
+    font-size: 18px;
     transition: background-color 0.3s ease;
-    /* Add smooth transition */
 }
 
 .login-form button:hover {
     background-color: #005689;
+}
+
+/* Additional Styling for a more interesting look */
+.login-form::before,
+.login-form::after {
+    content: '';
+    position: absolute;
+    height: 10px;
+    background: linear-gradient(to right, #0077cc, transparent);
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+.login-form::before {
+    top: -10px;
+    left: -10px;
+    right: -10px;
+}
+
+.login-form::after {
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+}
+
+/* Animation for a subtle floating effect */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.login-form {
+    animation: float 3s infinite ease-in-out;
+}
+
+/* Gradient background animation */
+@keyframes gradientBackground {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.login-form::before,
+.login-form::after {
+    animation: gradientBackground 3s infinite linear;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-bottom: 10px;
 }
