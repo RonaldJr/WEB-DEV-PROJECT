@@ -1,13 +1,5 @@
 /* AskQuestion.css */
 .ask-question {
-<<<<<<< HEAD
-  max-width: 650px;
-  margin: 300px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-=======
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -15,7 +7,6 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
->>>>>>> c5458e8c447ae0f1d44ec9b07d62919a9bfecb9d
 }
 
 .ask-question-title {
