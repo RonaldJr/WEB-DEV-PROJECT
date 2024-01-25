@@ -1,6 +1,12 @@
 /* AskQuestion.css */
 
 .ask-question {
+  max-width: 400px;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
