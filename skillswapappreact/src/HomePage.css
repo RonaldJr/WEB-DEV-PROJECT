@@ -70,6 +70,8 @@ body {
   font-size: 18px;
   font-weight: bold;
   transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
+  margin-right: 10px;
+  /* Added margin between buttons */
 }
 
 .button:hover {
