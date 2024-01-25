@@ -1,8 +1,11 @@
 /* Member.css */
+
+/* General styles for the member component */
 .Member {
     margin: 10px;
 }
 
+/* Styles for the member image */
 .Member img {
     width: 150px;
     height: 150px;
@@ -11,11 +14,13 @@
     margin-top: 10px;
 }
 
+/* Styles for the member paragraphs */
 .Member p {
     margin-top: 10px;
     font-weight: bold;
 }
 
+/* Styles for the close button within the member component */
 .Member .closeButton {
     background-color: red;
     color: white;
@@ -26,4 +31,3 @@
     border-radius: 4px;
     margin-top: 15px;
 }
-
