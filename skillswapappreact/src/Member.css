@@ -2,7 +2,14 @@
 
 /* General styles for the member component */
 .Member {
-    margin: 10px;
+    max-width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
 }
 
 /* Styles for the member image */
