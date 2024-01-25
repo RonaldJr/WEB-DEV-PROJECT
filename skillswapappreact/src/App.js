@@ -43,6 +43,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="header">
+      <img src={require('./members/login.jpg')} alt="logo" />
         <h1>Welcome to SwapSkill</h1>
         <ul className="nav-links">
           <li>
